@@ -1,0 +1,12 @@
+#title: "ping7.io documentation"
+remote_theme: pmarsceill/just-the-docs
+#theme: "just-the-docs"
+#search_enabled: false
+
+#repository: ping7io/docs
+#plugins:
+#- jekyll-github-metadata
+#- jekyll-mentions
+#- jekyll-redirect-from
+#- jekyll-sitemap
+#- jemoji
