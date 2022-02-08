@@ -1,7 +1,6 @@
-#title: "ping7.io documentation"
+title: "ping7.io documentation"
 remote_theme: pmarsceill/just-the-docs
-#theme: "just-the-docs"
-#search_enabled: false
+search_enabled: false
 
 #repository: ping7io/docs
 #plugins:
