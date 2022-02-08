@@ -1,11 +1,25 @@
 title: "ping7.io documentation"
+description: "Prometheus exporters as a service"
+url: "https://docs.ping7.io"
+
 remote_theme: pmarsceill/just-the-docs
 search_enabled: false
+color_scheme: light
 
-#repository: ping7io/docs
-#plugins:
-#- jekyll-github-metadata
-#- jekyll-mentions
-#- jekyll-redirect-from
-#- jekyll-sitemap
-#- jemoji
+aux_links:
+  "Home":
+    - "//ping7.io"
+  "ping7.io GitHub":
+    - "//github.com/ping7io"
+aux_links_new_tab: false
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+plugins:
+  - jekyll-seo-tag
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
