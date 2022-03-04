@@ -7,5 +7,5 @@ This repository holds the information for the `docs.ping7.io` website.
 ```bash
 $ docker build -t ping7-docs .
 $ docker run -p 4000:4000 \
-    -v $(pwd):/usr/src/app ping7-docs jekyll serve
+    -v $(pwd):/usr/src/app ping7-docs jekyll serve --watch
 ```
