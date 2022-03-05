@@ -19,7 +19,7 @@ Just the Docs gives your documentation a jumpstart with a responsive Jekyll them
 | enterprise |  `1000 rpm`         |
 
 
-## Debugging
+## Analyzing problems
 
 Prometheus talks to the ping7.io api via HTTP rest calls. These are easy
 to debug. These are some of the common return codes you can expect.
