@@ -7,25 +7,44 @@ nav_order: 2
 # Ping7.io check locations
 {: .fs-9 }
 
-Just the Docs gives your documentation a jumpstart with a responsive Jekyll theme that is easily customizable and hosted on GitHub Pages.
+Use our check locations around the globe to gather a global consensous
+of your websites availability.
 {: .fs-6 .fw-300 }
 
 ## Always probe from multiple locations
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+Do not rely on the metrics of a single location. Always probe each target from
+multiple locations. Ideally pick an uneven number of locations close to your
+website's main target audience.
+
+For a global target audience, use our exporters to test your global routing
+and distribution. You could for example check whether your geo location DNS
+setup is working properly.
 
 ## Available locations
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+These are the currently available check locations. More locations are in the works.
+
+#### Europe
 
 | location      | free plan | basic plan | enterprise plan |
 |:--------------|:----------|:-----------|:----------------|
 | `eu-central`  | ✅        | ✅          | ✅              |
 | `eu-north`    | ✅        | ✅          | ✅              |
-| `us-east`     | ✅        | ✅          | ✅              |
 | `eu-west`     | ❌        | ✅          | ✅              |
+
+#### North America
+
+| location      | free plan | basic plan | enterprise plan |
+|:--------------|:----------|:-----------|:----------------|
+| `us-east`     | ✅        | ✅          | ✅              |
 | `us-west`     | ❌        | ✅          | ✅              |
 | `ca-south`    | ❌        | ✅          | ✅              |
+
+#### Asia Pacific
+
+| location      | free plan | basic plan | enterprise plan |
+|:--------------|:----------|:-----------|:----------------|
 | `india-south` | ❌        | ✅          | ✅              |
 | `ap-central`  | ❌        | ✅          | ✅              |
 
@@ -41,3 +60,7 @@ These locations are planned and available within the next few months.
 | `africa-south`  | ~ Q2 2022          | ❌        | ✅          | ✅              |
 | `china-central` | ~ Q3 2022          | ❌        | ❌          | ✅              |
 | `au-east`       | ~ Q3 2022          | ❌        | ❌          | ✅              |
+
+
+💡 Missing a location? Contact us and we'll expand to that region!
+{: .bg-grey-lt-000 .p-3 .d-block }
