@@ -1,14 +1,15 @@
 ---
 title: Account limits
-parent: Configuration
+parent: General Configuration
 nav_order: 5
 ---
 
 # Account limits
 {: .fs-9 }
 
-Just the Docs gives your documentation a jumpstart with a responsive Jekyll theme that is easily customizable and hosted on GitHub Pages.
+Each account plan is tied to a maximum number of check requests per minute.
 {: .fs-6 .fw-300 }
+
 
 ## Account limits in place
 
@@ -18,6 +19,10 @@ Just the Docs gives your documentation a jumpstart with a responsive Jekyll them
 | basic      |  `30 rpm`           |
 | enterprise |  `1000 rpm`         |
 
+
+💡 Only requests executing remote checks are accounted for api request limits.
+   Retrieving current configuration does not account on to your api request limit.
+{: .bg-grey-lt-000 .p-3 .d-block .emoji}
 
 ## Analyzing problems
 

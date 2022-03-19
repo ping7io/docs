@@ -1,7 +1,7 @@
 ---
 title: Rules and Alerts
-parent: Configuration
-nav_order: 4
+parent: Blackbox Exporter
+nav_order: 3
 ---
 
 # Prometheus alerting rules

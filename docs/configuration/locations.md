@@ -1,7 +1,7 @@
 ---
 title: Locations
-parent: Configuration
-nav_order: 2
+parent: General Configuration
+nav_order: 4
 ---
 
 # Ping7.io check locations
