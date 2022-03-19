@@ -1,0 +1,24 @@
+name: continuous integration
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: build Docker file
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: false
+        tags: ping7-docs
+
+    - run: docker run -p 4000:4000 -v $(pwd):/usr/src/app ping7-docs jekyll build
