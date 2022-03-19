@@ -4,7 +4,7 @@ parent: General Configuration
 nav_order: 1
 ---
 
-# Account limits
+# Available Exporters
 {: .fs-9 .no_toc}
 
 These are the Prometheus Exporters currently available at ping7.io.

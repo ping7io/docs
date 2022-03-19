@@ -1,5 +1,5 @@
 ---
-title: Targets
+title: Target Configuration
 parent: Blackbox Exporter
 nav_order: 1
 ---

@@ -62,7 +62,7 @@ websites.
 $ docker compose up
 ```
 
-💡 Learn how to query and analyze metrics in Prometheus in the
+<i class="bi bi-github"></i> Learn how to query and analyze metrics in Prometheus in the
   [example repository](https://github.com/ping7io/examples)
 {: .bg-grey-lt-000 .p-3 .d-block }
 

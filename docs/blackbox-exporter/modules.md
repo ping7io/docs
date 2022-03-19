@@ -1,5 +1,5 @@
 ---
-title: Blackbox Exporter Modules
+title: Modules
 parent: Blackbox Exporter
 nav_order: 2
 ---
