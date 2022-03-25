@@ -1,50 +1,58 @@
 ---
-title: Modules
+title: Enpoints and Modules
 parent: Blackbox Exporter
 nav_order: 2
 ---
 
-# Blackbox Exporter
-{: .fs-9 }
+# Blackbox Exporter Modules
+{: .fs-9 .no_toc}
 
-Use the Blackbox Exporter to check your endpoints for expected HTTP return codes
-or general availability via ICMP ping requests.
-{: .fs-6 .fw-300 }
+The Blackbox Exporter module describes the check to execute against the
+given target and the check that is perfomed on the response if any. This
+page describes the available endpoints and modules.
+{: .fs-6 .fw-300 .no_toc}
 
-
-
-checks the result of publicly available enpoints
-against _modules_.
-
-https://github.com/prometheus/blackbox_exporter#prometheus-configuration
-
-🕞 We are deploying the `0.20.0` version of the Blackbox Exporter.
-{: .emoji .bg-grey-lt-000 .p-3 .d-block .mt-8}
+1. TOC
+{:toc}
 
 ## Endpoints
 
+The Blackbox Exporter exposes two endpoints. Configure the endpoint to use
+in your [Prometheus job configuration](targets.html) as the `metrics_path`.
 
 ### `/blackbox/probe`
+
+Does the actual probe of a given target. It has the following parameters
 
 | parameter     | example            | default    | description            |
 |:--------------|:-------------------|:-----------|:-----------------------|
 | `target`      | `https://ping7.io` | --         |The target url to test |
 | `module`      | `http_2xx`         | `http_2xx` |The module to check against the target urls response (see below) |
+| `debug`       | `true`             | `false`    |Displays debug output from the executed check|
 
-➡️ Full Example to check ping7.io for a HTTP 200 return code: `https://check.ping7.io/blackbox/probe?target=https://ping7.io&module=http_2xx`
+➡️ Full Example to check prometheus.io for a HTTP 200 return code: `https://check.ping7.io/blackbox/probe?target=https://prometheus.io&module=http_2xx`
 {: .emoji .bg-grey-lt-000 .p-3 .d-block .mt-8}
-
-### `/blackbox/debug`
 
 
 ### `/blackbox/config`
 
+Returns the current module configuration of the Blackbox Exporter (see below). This endpoint
+does not take any parameters.
+
+➡️ Full Example: `https://check.ping7.io/blackbox/config`
+{: .emoji .bg-grey-lt-000 .p-3 .d-block .mt-8}
+
 
 ## Modules
 
-The Blackbox Exporter
+With every probe the Blackbox Exporter expects a _module_ that defines the check
+to be issued against the target and the check that should be conducted against the
+response, if any.
 
-https://github.com/prometheus/blackbox_exporter#configuration
+💡 You can supply your custom module in the enterprise plan.
+{: .bg-grey-lt-000 .p-3 .d-block .emoji}
+
+https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md
 
 | module               | prober | ip stack | description |
 |:---------------------|:-------|:---------|:------------|

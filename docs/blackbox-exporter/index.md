@@ -17,3 +17,6 @@ or general ping requests.
 
 <i class="bi bi-github"></i> [Blackbox Exporter GitHub Repo](https://github.com/prometheus/blackbox_exporter)
 {: .bg-grey-lt-000 .p-3 .d-block}
+
+🕞 We are deploying the `0.20.0` version of the Blackbox Exporter.
+{: .emoji .bg-grey-lt-000 .p-3 .d-block .mt-8}
