@@ -5,13 +5,12 @@ grand_parent: Prometheus Exporters
 nav_order: 2
 ---
 
-# Blackbox Exporter Modules
+# Blackbox Exporter Endpoints & Modules
 {: .fs-9 .no_toc}
 
-The Blackbox Exporter module describes the check to execute against the
+The Blackbox Exporter _module_ describes the check to execute against the
 given target and the check that is perfomed on the response if any. This
 page describes the available endpoints and modules.
-{: .fs-6 .fw-300 .no_toc}
 
 1. TOC
 {:toc}
@@ -31,7 +30,7 @@ Does the actual probe of a given target. It has the following parameters
 | `module`      | `http_2xx`         | `http_2xx` |The module to check against the target urls response (see below) |
 | `debug`       | `true`             | `false`    |Displays debug output from the executed check|
 
-➡️ Full Example to check prometheus.io for a HTTP 200 return code: `https://check.ping7.io/blackbox/probe?target=https://prometheus.io&module=http_2xx`
+➡️ Full Example to check prometheus.io for a HTTP 200 return code: `https://check.ping7.io/blackbox/probe?target=https://prometheus.io&module=http_2xx&location=eu-central`
 {: .emoji .bg-grey-lt-000 .p-3 .d-block .mt-8}
 
 
@@ -40,7 +39,7 @@ Does the actual probe of a given target. It has the following parameters
 Returns the current module configuration of the Blackbox Exporter (see below). This endpoint
 does not take any parameters.
 
-➡️ Full Example: `https://check.ping7.io/blackbox/config`
+➡️ Full Example: `https://check.ping7.io/blackbox/config&location=eu-central`
 {: .emoji .bg-grey-lt-000 .p-3 .d-block .mt-8}
 
 
@@ -65,7 +64,7 @@ https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md
 | `http_401`           | `http` | `ipv4`   | |
 | `ping`               | `icmp` | `ipv4`   | |
 
-This is our current Blackbox Exporter configuration:
+This is our current Blackbox Exporter module configuration:
 
 ```yaml
 modules:
@@ -110,7 +109,3 @@ modules:
     icmp:
     preferred_ip_protocol: ip4
 ```
-
-💡 You can query the configured modules using the `/blackbox/config`
-endpoint.
-{: .bg-grey-lt-000 .p-3 .d-block .mt-8}

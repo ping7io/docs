@@ -12,12 +12,6 @@ In Prometheus you have to configure a distinct job per Exporter
 per location you want to check your targets with. Target can
 either be provided as a static list or via the api clients
 integrated in Prometheus (e.g. Ingresses in Kubernetes)
-{: .fs-6 .fw-300 }
-
-💡 In case of the Blackbox Exporter we recommend
-that you check every target from at least three locations.
-{: .bg-grey-lt-000 .p-3 .d-block .emoji}
-
 
 ## Configure job
 
@@ -52,8 +46,12 @@ scrape_configs:
         target_label: location
 ```
 
-<i class="bi bi-github"></i> [Blackbox Exporter Configuration in it's GitHub Repo](https://github.com/prometheus/blackbox_exporter#prometheus-configuration)
-{: .bg-grey-lt-000 .p-3 .d-block}
+💡 In case of the Blackbox Exporter we recommend
+that you check every target from at least three locations.
+This means that you need to configure three of the above jobs in
+your Prometheus configuration.
+{: .bg-grey-lt-000 .p-3 .d-block .emoji}
+
 
 ## Configuration options
 
@@ -99,3 +97,6 @@ params:
 ```
 
 Check out the [available locations](locations.md).
+
+<i class="bi bi-github"></i> [Blackbox Exporter Configuration in it's GitHub Repo](https://github.com/prometheus/blackbox_exporter#prometheus-configuration)
+{: .bg-grey-lt-000 .p-3 .d-block}

@@ -1,10 +1,11 @@
 ---
-title: Targets
+title: Job Configuration
 parent: SSL/TLS-Exporter
+grand_parent: Prometheus Exporters
 nav_order: 1
 ---
 
-# Configure check targets in Prometheus
+# Configure SSL Exporter in Prometheus
 {: .fs-9 }
 
 Check target can either be provided as a static list or via the

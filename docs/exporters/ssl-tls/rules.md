@@ -1,7 +1,8 @@
 ---
 title: Rules and Alerts
 parent: SSL/TLS-Exporter
-nav_order: 3
+grand_parent: Prometheus Exporters
+nav_order: 10
 ---
 
 # Prometheus alerting rules

@@ -5,8 +5,12 @@ nav_order: 20
 has_children: true
 ---
 
-# Available Prometheus Exporters
+# Prometheus SSL Exporter
 {: .fs-9 }
 
-These Prometheus Exporters are available via [ping7.io](https://ping7.io).
+Use the SSL Exporter for __in-depth checks__ of TLS certificates
+securing HTTP endpoints.
 {: .fs-6 .fw-300 }
+
+1. [Job configuration in Prometheus](targets.html)
+1. [Prometheus Alerting Rules](rules.md)
