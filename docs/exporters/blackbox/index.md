@@ -1,5 +1,6 @@
 ---
 title: Blackbox Exporter
+parent: Prometheus Exporters
 nav_order: 10
 has_children: true
 ---

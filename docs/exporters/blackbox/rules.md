@@ -1,6 +1,7 @@
 ---
 title: Rules and Alerts
 parent: Blackbox Exporter
+grand_parent: Prometheus Exporters
 nav_order: 3
 ---
 

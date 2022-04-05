@@ -1,6 +1,7 @@
 ---
 title: Job Configuration
 parent: Blackbox Exporter
+grand_parent: Prometheus Exporters
 nav_order: 1
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Enpoints and Modules
 parent: Blackbox Exporter
+grand_parent: Prometheus Exporters
 nav_order: 2
 ---
 

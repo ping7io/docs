@@ -1,5 +1,6 @@
 ---
 title: SSL/TLS-Exporter
+parent: Prometheus Exporters
 nav_order: 20
 has_children: true
 ---

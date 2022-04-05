@@ -5,6 +5,7 @@ This repository holds the information for the `docs.ping7.io` website.
 ## Running the docs locally
 
 ```bash
+$ rm Gemfile.lock
 $ docker build -t ping7-docs .
 $ docker run -p 4000:4000 \
     -v $(pwd):/usr/src/app ping7-docs jekyll serve --watch

@@ -1,6 +1,6 @@
 ---
 title: General Configuration
-nav_order: 2
+nav_order: 20
 has_children: true
 has_toc: false
 ---
@@ -12,7 +12,7 @@ This section covers the general configuration options
 in your Prometheus client.
 {: .fs-6 .fw-300 }
 
-1. [Learn about available Exporters](exporters.html)
+1. [Learn about available Exporters](../exporters/)
 1. [Configure your Prometheus instance](prometheus.html)
 1. [Learn different ways to acquire check targets](targets.html)
 1. [Check out our locations](locations.html)
