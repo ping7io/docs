@@ -1,15 +1,21 @@
 ---
-title: Updates
+title: Updates and Roadmap
 nav_order: 50
-has_children: true
 ---
 
-# Product updates
+# Product updates & Roadmap
 {: .fs-9 }
 
-These are the latest [ping7.io](https://ping7.io) product features.
+These are the latest [ping7.io](https://ping7.io) product features and
+our current roadmap.
 {: .fs-6 .fw-300 }
 
-### We're live
+## Product updates
 
-`April, 1st, 2020` – We're live with managed Prometheus exporters.
+Coming soon
+{: .label .label-yellow }
+
+## Roadmap
+
+* More locations are planned as layed out in the [locations page](../configuration/locations.html).
+* IPv6 probe support is planned.

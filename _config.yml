@@ -1,19 +1,20 @@
-title: "docs.ping7.io"
+title: "ping7.io docs"
 description: "Prometheus exporters as a service"
 url: "https://docs.ping7.io"
 host: 0.0.0.0
 source: docs
 
 remote_theme: pmarsceill/just-the-docs
-search_enabled: false
+
+search_enabled: true
 color_scheme: light
 
 aux_links:
   "Home":
     - "//ping7.io"
-  "ping7.io GitHub":
+  "ping7.io on GitHub":
     - "//github.com/ping7io"
-aux_links_new_tab: false
+aux_links_new_tab: true
 
 back_to_top: true
 back_to_top_text: "Back to top"

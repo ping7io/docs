@@ -5,12 +5,8 @@ grand_parent: Prometheus Exporters
 nav_order: 10
 ---
 
-# Prometheus alerting rules
+# Prometheus alerting rules for the SSL Exporter
 {: .fs-9 }
-
-As we are utilizing the well known Blackbox and SSL-Exporter you basically
-use Promtheus rules built for those.
-{: .fs-6 .fw-300 }
 
 Within Prometheus you can define [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/). Alerting rules allow you to define alert conditions based on Prometheus expression language
 expressions and to send notifications about firing alerts to an external service.
@@ -19,42 +15,59 @@ expressions and to send notifications about firing alerts to an external service
 rule examples.
 {: .bg-grey-lt-000 .p-3 .d-block }
 
-## Well known alerting rules
+## Basic alerting rules
 
 The collection of [awesome Prometheus alerts](https://awesome-prometheus-alerts.grep.to/rules.html)
-contains well known alerting rules for the managed Promtheus exporters available at ping7.io.
-
-### Blackbox Exporter
-
-The [Blackbox Exporter](../exporters/blackbox-exporter.md) checks publicly available
-HTTP endpoints for return codes. The example alert rule below checks for metrics having
-a HTTP status code outside of the range `[200-399]`.
+contains alerting rules for the managed Promtheus exporters available at ping7.io. The following
+rules are the important ones for the SSL Exporter.
 
 ```yaml
 groups:
-- name: blackbox
+- name: ssl
   rules:
-  - alert: BlackboxProbeHttpFailure
-    expr: probe_http_status_code <= 199 OR probe_http_status_code >= 400
+
+  - alert: SslCertificateProbeFailed
+    expr: ssl_probe_success == 0
     for: 0m
     labels:
       severity: critical
     annotations:
-      summary: Blackbox probe HTTP failure (instance {\{ $labels.instance }})
-      description: "HTTP status code is not 200-399\n  VALUE = {\{ $value }}\n  LABELS = {\{ $labels }}"
+      summary: SSL certificate probe failed (instance {\{ $labels.instance }})
+      description: "Failed to fetch SSL information {\{ $labels.instance }}\n  VALUE = {\{ $value }}\n  LABELS = {\{ $labels }}"
+
+  - alert: SslCertificateOscpStatusUnknown
+    expr: ssl_ocsp_response_status == 2
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: SSL certificate OSCP status unknown (instance {\{ $labels.instance }})
+      description: "Failed to get the OSCP status {\{ $labels.instance }}\n  VALUE = {\{ $value }}\n  LABELS = {\{ $labels }}"
+
+  - alert: SslCertificateRevoked
+    expr: ssl_ocsp_response_status == 1
+    for: 0m
+    labels:
+      severity: critical
+    annotations:
+      summary: SSL certificate revoked (instance {\{ $labels.instance }})
+      description: "SSL certificate revoked {\{ $labels.instance }}\n  VALUE = {\{ $value }}\n  LABELS = {\{ $labels }}"
+
+  - alert: SslCertificateExpiry(<7Days)
+    expr: ssl_verified_cert_not_after{chain_no="0"} - time() < 86400 * 7
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: SSL certificate expiry (< 7 days) (instance {\{ $labels.instance }})
+      description: "{\{ $labels.instance }} Certificate is expiring in 7 days\n  VALUE = {\{ $value }}\n  LABELS = {\{ $labels }}"
 ```
 
-💡 Find all well known [Blackbox Exporter alerting rules here](https://awesome-prometheus-alerts.grep.to/rules.html#blackbox).
+💡 Find all [awesome Blackbox Exporter alerting rules here](https://awesome-prometheus-alerts.grep.to/rules.html#ssl/tls).
 {: .bg-grey-lt-000 .p-3 .d-block }
 
 
-### SSL Exporter
+## Advanced alerting rules
 
-The [SSL Exporter](../exporters/ssl-exporter.md) is capable of detecting expired TLS certificates or
-misconfigured TLS chains. It can also check OCSP stapling errors.
-
-💡 Find all well known [SSL Exporter alerting rules here](https://awesome-prometheus-alerts.grep.to/rules.html#ssl/tls).
-{: .bg-grey-lt-000 .p-3 .d-block }
-
-
-## Extended alerting rules
+Coming soon
+{: .label .label-yellow }

@@ -17,7 +17,7 @@ integrated in Prometheus (e.g. Ingresses in Kubernetes)
 
 The easiest integration is the [static target configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config).
 Here, you explicitly list the websites you want to check. Below you find an example checking
-two websites from the `eu-central` location.
+two websites from the `eu-central` location for a `HTTP 200` response code.
 
 ```yaml
 scrape_configs:
@@ -100,3 +100,7 @@ Check out the [available locations](locations.md).
 
 <i class="bi bi-github"></i> [Blackbox Exporter Configuration in it's GitHub Repo](https://github.com/prometheus/blackbox_exporter#prometheus-configuration)
 {: .bg-grey-lt-000 .p-3 .d-block}
+
+### Target selection
+
+Check the [general configuration for target selection](../../configuration/targets.md).

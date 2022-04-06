@@ -9,25 +9,25 @@ nav_order: 1
 {: .fs-9 }
 
 Check target can either be provided as a static list or via the
-api clients integrated in Prometheus (e.g. for Kubernetes.
-{: .fs-6 .fw-300 }
-
+api clients integrated in Prometheus (e.g. for Kubernetes). Targets
+can be HTTP endpoints only.
 
 ## Configure static targets
 
-The easiest integration is the static target configuration. Here, you explicitly
-list the websites you wan to check.
+The easiest integration is the [static target configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config).
+Here, you explicitly list the websites you want to check. Below you find an example examining
+the TLS certificates of two websites from the `eu-central` location.
+
 
 ```yaml
 scrape_configs:
-  - job_name: blackbox-eu-central
-    scrape_interval: 1m
-    metrics_path: /blackbox/probe
+  - job_name: tls-eu-central
+    scrape_interval: 5m
+    metrics_path: /tls/probe
     scheme: https
     authorization:
       credentials_file: /etc/prometheus/ping7io-token
     params:
-      module: [http_2xx]
       location: [eu-central]
     static_configs:
       - targets:
@@ -56,17 +56,21 @@ and apply to all ways of configuring targets (static of via Kubernetes Ingress).
 How frequently to scrape targets.
 
 ```yaml
-scrape_interval: 1m
+scrape_interval: 5m
 ```
 
 You can supply any [valid Prometheus duration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#duration) like `5s`, `1m`, `1h45m` or `7d`.
 
+💡 As the analysis of the SSL Exporter is costlier than other checks,
+we recommend to examine TLS certificates not more often than every `5m`.
+{: .bg-grey-lt-000 .p-3 .d-block .emoji}
+
 ### Exporter selection
 
-The exporter to scrape, in this case the [Blackbox Exporter](../exporters/blackbox-exporter.md).
+The exporter to scrape. This is the endpoint of the TLS-Exporter.
 
 ```yaml
-metrics_path: /blackbox/probe
+metrics_path: /tls/probe
 ```
 
 Find the [list of available exporters here](../exporters/).
@@ -82,21 +86,6 @@ authorization:
   [ credentials: <secret> ]
   [ credentials_file: <filename> ]
 ```
-
-### Check expectation
-
-Every exporter checks the given targets for a specific outcome. In this
-case the [Blackbox Exporter](../exporters/blackbox-exporter.md) checks
-for a `HTTP 200` return code.
-
-```yaml
-params:
-  module: [http_2xx]
-```
-
-Every exporter defines its own expectation defintion. Check out the
-[Blackbox Exporter chapter](../exporters/blackbox-exporter.md) for
-available `module` parameters.
 
 ### Check location
 
@@ -132,61 +121,9 @@ The configuration above would result in the following api call.
 
 ```bash
 $ curl -vH "Authorization: Bearer YOUR_API_TOKEN" \
-  "https://check.ping7.io/blackbox/probe?location=eu-central&target=https//ping7.io&module=http_2xx"
+  "https://check.ping7.io/tls/probe?location=eu-central&target=https//ping7.io"
 ```
 
-## Target selection
+### Target selection
 
-If possible you should aim for an automatic target selection via some api.
-For the beginning, the static target selection is the quickest way to get
-started.
-
-### Static target selection
-
-Configures [static targets](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config)
-to check. You can list any HTTP or HTTPS
-website that is publicly available.
-
-```yaml
-static_configs:
-  - targets:
-      - https://prometheus.io
-      - https://ping7.io
-```
-
-### Kubernetes: Configure Ingress endpoints
-
-Uses the [Kubernetes API](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config)
-to retrieve endpoints in the current cluster.
-
-```yaml
-kubernetes_sd_configs:
-  - role: ingress
-```
-
-```yaml
-relabel_configs:
-  - source_labels: [__meta_kubernetes_ingress_host]
-    regex: (.+)
-    action: keep
-  - source_labels: [__meta_kubernetes_ingress_scheme,__meta_kubernetes_ingress_host]
-    separator: ://
-    target_label: __param_target
-    action: replace
-  - source_labels: [__param_target]
-    target_label: instance
-  - source_labels: [__address__]
-    target_label: __address__
-    replacement: check.ping7.io
-  - source_labels: [__param_location]
-    target_label: location
-```
-
-### More examples & ideas
-
-Prometheus already bundles a lot of api clients. Here are some ideas how to
-automatically provision your targets:
-
-* Tag your EC2 instances or DigitalOcean droplets with a specific tag. List
-  all your instances and filter for the specific tags. Use the tag values
-  as targets.
+Check the [general configuration for target selection](../../configuration/targets.md).
