@@ -27,11 +27,12 @@ These are the currently available check locations. More locations are in the wor
 
 #### Europe
 
-| location      | free plan | basic plan | enterprise plan |
-|:--------------|:----------|:-----------|:----------------|
-| `eu-central`  | ✅        | ✅          | ✅              |
-| `eu-north`    | ✅        | ✅          | ✅              |
-| `eu-west`     | ❌        | ✅          | ✅              |
+| location      | free plan | basic plan  | enterprise plan |
+|:--------------|:----------|:------------|:----------------|
+| `eu-central`  | ✅        | ✅           | ✅              |
+| `eu-north`    | ✅        | ✅           | ✅              |
+| `eu-west`     | ❌        | (on request) | (on request)   |
+| `eu-east`     | ❌        | (on request) | (on request)   |
 
 #### North America
 
@@ -39,27 +40,28 @@ These are the currently available check locations. More locations are in the wor
 |:--------------|:----------|:-----------|:----------------|
 | `us-east`     | ✅        | ✅          | ✅              |
 | `us-west`     | ❌        | ✅          | ✅              |
-| `ca-south`    | ❌        | ✅          | ✅              |
+| `ca-south`    | ❌        | (on request) | (on request)   |
+
+#### South America
+
+| location      | free plan | basic plan | enterprise plan |
+|:--------------|:----------|:-----------|:----------------|
+| `sa-east`     | ❌        | (on request) | (on request)   |
+
+#### Middle East & Africa
+
+| location      | free plan | basic plan | enterprise plan |
+|:--------------|:----------|:-----------|:----------------|
+| `africa-south` | ❌         | ❌          | (on request)   |
 
 #### Asia Pacific
 
 | location      | free plan | basic plan | enterprise plan |
 |:--------------|:----------|:-----------|:----------------|
-| `india-south` | ❌        | ✅          | ✅              |
-| `ap-central`  | ❌        | ✅          | ✅              |
-
-
-## Upcoming locations
-
-These locations are planned and available within the next few months.
-
-| location        | entry into service | free plan | basic plan | enterprise plan |
-|:----------------|:-------------------|:----------|:-----------|:----------------|
-| `eu-east`       | ~ Q2 2022          | ❌        | ✅          | ✅              |
-| `sa-east`       | ~ Q2 2022          | ❌        | ✅          | ✅              |
-| `africa-south`  | ~ Q2 2022          | ❌        | ✅          | ✅              |
-| `china-central` | ~ Q3 2022          | ❌        | ❌          | ✅              |
-| `au-east`       | ~ Q3 2022          | ❌        | ❌          | ✅              |
+| `india-south` | ❌        | (on request) | (on request)   |
+| `ap-central`  | ❌        | (on request) | (on request)   |
+| `china-central` | ❌        | ❌          | (on request)   |
+| `au-east`       | ❌        | ❌          | (on request)   |
 
 
 💡 Missing a location? Contact us and we'll expand to that region!
