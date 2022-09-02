@@ -31,8 +31,8 @@ These are the currently available check locations. More locations are in the wor
 |:--------------|:----------|:------------|:----------------|
 | `eu-central`  | ✅        | ✅           | ✅              |
 | `eu-north`    | ✅        | ✅           | ✅              |
-| `eu-west`     | ❌        | (on request) | (on request)   |
-| `eu-east`     | ❌        | (on request) | (on request)   |
+| `eu-west`     | ❌        | 📢 (on request) | 📢 (on request) |
+| `eu-east`     | ❌        | 📢 (on request) | 📢 (on request) |
 
 #### North America
 
@@ -40,28 +40,28 @@ These are the currently available check locations. More locations are in the wor
 |:--------------|:----------|:-----------|:----------------|
 | `us-east`     | ✅        | ✅          | ✅              |
 | `us-west`     | ❌        | ✅          | ✅              |
-| `ca-south`    | ❌        | (on request) | (on request)   |
+| `ca-south`    | ❌        | 📢 (on request) | 📢 (on request) |
 
 #### South America
 
 | location      | free plan | basic plan | enterprise plan |
 |:--------------|:----------|:-----------|:----------------|
-| `sa-east`     | ❌        | (on request) | (on request)   |
+| `sa-east`     | ❌        | 📢 (on request) | 📢 (on request) |
 
 #### Middle East & Africa
 
 | location      | free plan | basic plan | enterprise plan |
 |:--------------|:----------|:-----------|:----------------|
-| `africa-south` | ❌         | ❌          | (on request)   |
+| `africa-south` | ❌         | ❌        | 📢 (on request) |
 
 #### Asia Pacific
 
 | location      | free plan | basic plan | enterprise plan |
 |:--------------|:----------|:-----------|:----------------|
-| `india-south` | ❌        | (on request) | (on request)   |
-| `ap-central`  | ❌        | (on request) | (on request)   |
-| `china-central` | ❌        | ❌          | (on request)   |
-| `au-east`       | ❌        | ❌          | (on request)   |
+| `india-south` | ❌        | 📢 (on request) | 📢 (on request) |
+| `ap-central`  | ❌        | 📢 (on request) | 📢 (on request) |
+| `china-central` | ❌        | ❌          | 📢 (on request) |
+| `au-east`       | ❌        | ❌         | 📢 (on request) |
 
 
 💡 Missing a location? Contact us and we'll expand to that region!
