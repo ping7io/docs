@@ -41,8 +41,6 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: __address__
         replacement: check.ping7.io
-      - source_labels: [__param_location]
-        target_label: location
 ```
 
 ## General configuration options
@@ -89,8 +87,7 @@ authorization:
 
 ### Check location
 
-Configures the location to issue the check from. You
-can only supply a _single location_.
+Configures the locations to issue the check from.
 
 ```yaml
 params:
@@ -114,8 +111,6 @@ relabel_configs:
   - source_labels: [__address__]
     target_label: __address__
     replacement: check.ping7.io
-  - source_labels: [__param_location]
-    target_label: location
 ```
 The configuration above would result in the following api call.
 

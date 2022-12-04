@@ -45,8 +45,6 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: __address__
         replacement: check.ping7.io
-      - source_labels: [__param_location]
-        target_label: location
 ```
 
 ### `relabel_config` for static targets
@@ -64,8 +62,6 @@ relabel_configs:
   - source_labels: [__address__]
     target_label: __address__
     replacement: check.ping7.io
-  - source_labels: [__param_location]
-    target_label: location
 ```
 
 ## Kubernetes Ingress endpoints
@@ -92,8 +88,6 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: __address__
         replacement: check.ping7.io
-      - source_labels: [__param_location]
-        target_label: location
 ```
 
 ### `relabel_config` for Kubernetes Ingresses
@@ -116,8 +110,6 @@ relabel_configs:
   - source_labels: [__address__]
     target_label: __address__
     replacement: check.ping7.io
-  - source_labels: [__param_location]
-    target_label: location
 ```
 
 ## More examples & ideas

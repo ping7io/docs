@@ -17,7 +17,7 @@ configuration.
 This page lays out the general configuration options for Exporter
 selection, authentication und scrape interval. Below you find a example
 integration for a check for two websites using the [Blackbox Exporter](/blackbox-exporter)
-in the `eu-central` location.
+from two locations.
 
 ```yaml
 scrape_configs:
@@ -29,7 +29,7 @@ scrape_configs:
       credentials_file: /etc/prometheus/ping7io-token
     params:
       module: [http_2xx]
-      location: [eu-central]
+      location: [eu-central, eu-north]
     static_configs:
       - targets:
           - https://prometheus.io
@@ -42,15 +42,13 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: __address__
         replacement: check.ping7.io
-      - source_labels: [__param_location]
-        target_label: location
 ```
 
 This configuration lets Prometheus query metrics using the following HTTP call:
 
 ```bash
 $ curl -vH "Authorization: Bearer YOUR_API_TOKEN" \
-  "https://check.ping7.io/blackbox/probe?location=eu-central&target=https//ping7.io&module=http_2xx"
+  "https://check.ping7.io/blackbox/probe?target=https//ping7.io&module=http_2xx&location=eu-central&location=eu-north"
 ```
 
 
@@ -113,12 +111,11 @@ available `module` parameters.
 
 ### Check location
 
-Configures the location to issue the check from. You
-can only supply a _single location_.
+Configures the location to issue the check from.
 
 ```yaml
 params:
-  location: [eu-central]
+  location: [eu-central, eu-north, us-east]
 ```
 
 Check out the [available locations](locations.md).

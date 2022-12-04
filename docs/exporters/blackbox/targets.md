@@ -17,7 +17,7 @@ integrated in Prometheus (e.g. Ingresses in Kubernetes)
 
 The easiest integration is the [static target configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config).
 Here, you explicitly list the websites you want to check. Below you find an example checking
-two websites from the `eu-central` location for a `HTTP 200` response code.
+two websites from three locations for a `HTTP 200` response code.
 
 ```yaml
 scrape_configs:
@@ -29,7 +29,10 @@ scrape_configs:
       credentials_file: /etc/prometheus/ping7io-token
     params:
       module: [http_2xx]
-      location: [eu-central]
+      location:
+        - eu-central
+        - eu-north
+        - us-east
     static_configs:
       - targets:
           - https://prometheus.io
@@ -42,14 +45,10 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: __address__
         replacement: check.ping7.io
-      - source_labels: [__param_location]
-        target_label: location
 ```
 
 💡 In case of the Blackbox Exporter we recommend
 that you check every target from at least three locations.
-This means that you need to configure three of the above jobs in
-your Prometheus configuration.
 {: .bg-grey-lt-000 .p-3 .d-block .emoji}
 
 
@@ -88,12 +87,11 @@ params:
 
 ### Check location
 
-Configures the location to issue the check from. You
-can only supply a _single location_.
+Configures the locations to issue the check from.
 
 ```yaml
 params:
-  location: [eu-central]
+  location: [eu-central, eu-north, us-east]
 ```
 
 Check out the [available locations](locations.md).
